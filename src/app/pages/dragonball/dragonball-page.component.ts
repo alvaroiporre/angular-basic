@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 
 interface Character {
@@ -8,7 +8,7 @@ interface Character {
 }
 @Component({
   selector: 'app-dragonball',
-  imports: [NgFor, NgClass],
+  imports: [NgFor, NgClass, NgIf],
   templateUrl: './dragonball-page.component.html',
 })
 export class DragonballPageComponent {
@@ -27,6 +27,11 @@ export class DragonballPageComponent {
       id: 3,
       name: 'Piccolo',
       power: 3000
+    },
+    {
+      id: 4,
+      name: 'Yamcha',
+      power: 500
     }
   ]);
 
