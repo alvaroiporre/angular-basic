@@ -29,33 +29,6 @@
   </div>
 
   <div class="col-12 col-sm-6">
-    <h3>Listado</h3>
-    <ul>
-      @for (character of characters(); track character.id; let idx = $index) {
-      <!-- <li *ngIf="character.power > 1000"> -->
-      @if ( character.power > 500) {
-        <li>
-          <span>{{ idx + 1 }} - {{ character.name }}</span>
-          <strong
-            [class.text-danger]="character.power >= 9000"
-            [class.text-primary]="character.power < 9000"
-            >({{ character.power }})</strong
-          >
-
-          <!--
-              Using ngClass
-              <strong
-                [ngClass]="powerClasses()"
-              >({{ character.power }})</strong> -->
-        </li>
-      } @else {
-        <li>Aqui nadie vale la pena</li>
-      } }
-      <!-- <li
-        *ngFor="let character of characters()"
-      >
-        {{character.name}}
-      </li> -->
-    </ul>
+    <dragonball-character-list [characters]="characters()"/>
   </div>
 </section>
