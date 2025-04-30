@@ -7,11 +7,11 @@ interface Character {
   power: number;
 }
 @Component({
-  selector: 'app-dragonball',
-  imports: [NgFor, NgClass, NgIf],
-  templateUrl: './dragonball-page.component.html',
+  selector: 'app-dragonball-super',
+  imports: [],
+  templateUrl: './dragonball-super-page.component.html',
 })
-export class DragonballPageComponent {
+export class DragonballSuperPageComponent {
   name = signal('');
   power = signal(0);
 
@@ -21,21 +21,11 @@ export class DragonballPageComponent {
       name: 'Goku',
       power: 9001,
     },
-    // {
-    //   id: 2,
-    //   name: 'Vegeta',
-    //   power: 8000,
-    // },
-    // {
-    //   id: 3,
-    //   name: 'Piccolo',
-    //   power: 3000,
-    // },
-    // {
-    //   id: 4,
-    //   name: 'Yamcha',
-    //   power: 500,
-    // },
+    {
+      id: 2,
+      name: 'Vegeta',
+      power: 8000,
+    },
   ]);
 
   powerClasses = computed(() => {
