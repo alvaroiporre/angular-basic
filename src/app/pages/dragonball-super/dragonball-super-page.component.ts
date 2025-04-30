@@ -1,6 +1,7 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { CharacterListComponent } from '../../components/dragonball/character-list/character-list.component';
+import { CharacterAddComponent } from "../../components/dragonball/character-add/character-add.component";
 
 interface Character {
   id: number;
@@ -9,7 +10,7 @@ interface Character {
 }
 @Component({
   selector: 'app-dragonball-super',
-  imports: [CharacterListComponent],
+  imports: [CharacterListComponent, CharacterAddComponent],
   templateUrl: './dragonball-super-page.component.html',
 })
 export class DragonballSuperPageComponent {
@@ -34,25 +35,4 @@ export class DragonballSuperPageComponent {
       'text-danger': true,
     };
   });
-
-  addCharacter() {
-    if (!this.name() || !this.power || this.power() <= 0) {
-      return;
-    }
-
-    const newCharacter: Character = {
-      id: this.characters.length,
-      name: this.name(),
-      power: this.power(),
-    };
-
-    this.characters.update((current) => [...current, newCharacter]);
-    // this.characters().push(newCharacter);
-    this.resetFields();
-  }
-
-  resetFields() {
-    this.name.set('');
-    this.power.set(0);
-  }
 }
